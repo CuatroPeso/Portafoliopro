@@ -1,0 +1,33 @@
+{% extends 'base_generic.html' %}
+
+{% block content %}
+<style>
+    .centered-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh; /* Opcional: ajusta la altura según tus necesidades */
+    }
+
+    .form-container {
+        color: black;
+        width: 100%;
+        max-width: 400px; /* Ajusta el ancho máximo según tus necesidades */
+        padding: 20px;
+        background-color: #f8f9fa; /* Color de fondo opcional */
+        border: 1px solid #ced4da; /* Borde opcional */
+        border-radius: 8px; /* Bordes redondeados opcional */
+    }
+</style>
+
+<div class="centered-container">
+    <div class="form-container">
+        <h2 class="text-center">Iniciar Sesión</h2>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="btn btn-primary btn-block">Iniciar Sesión</button>
+        </form>
+    </div>
+</div>
+{% endblock %}
